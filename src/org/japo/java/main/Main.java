@@ -27,46 +27,40 @@ public class Main {
     public static final Random RND = new Random();
 
     public static void main(String[] args) {
-        
-        
 
         Calendar cal = Calendar.getInstance();
-        
+
         final int hMin = 01;
         final int mMin = 00;
         final int sMin = 00;
-        
 
         int hAct = cal.get(Calendar.HOUR_OF_DAY);
         int mAct = cal.get(Calendar.MINUTE);
         int sAct = cal.get(Calendar.SECOND);
-        
+
         int hRnd = RND.nextInt(hAct - hMin + 1) + hMin;
         int mRnd = RND.nextInt(mAct - mMin + 1) + mMin;
         int sRnd = RND.nextInt(sAct - sMin + 1) + sMin;
-        
-        
+
         System.out.printf("Hora actual ......: %d:%d:%d%n", hAct, mAct, sAct);
         System.out.printf("Hora inicio ......: %d:%d:%d%n", hRnd, mRnd, sRnd);
-        
+
         //Pasar hora actual y hora random a segundos
         int tiempoActSeg = hAct * 3600 + mAct * 60 + sAct;
         int tiempoRndSeg = hRnd * 3600 + mRnd * 60 + sRnd;
-        
+
         //Saber segundos que hay de diferencia
         int segDif = tiempoActSeg - tiempoRndSeg;
-        
+
         //Pasar segundos a minutos
         int minDif = segDif / 60;
-        
+
         //Pasar a horas
         int horaDif = minDif / 60;
-            minDif = minDif % 60;
-            segDif = segDif % 60;
-            
+        minDif = minDif % 60;
+        segDif = segDif % 60;
+
         System.out.printf("Tiempo de clase ..: %d:%d:%d%n", horaDif, minDif, segDif);
-        
-        
-        
+
     }
 }
